@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  div.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+  }
+}
+
+div.headline {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}

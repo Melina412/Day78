@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+header div.logo {
+  display: flex;
+  align-items: center;
+}
+header nav {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+div.headline {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */
