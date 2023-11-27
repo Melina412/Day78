@@ -7,13 +7,7 @@ const sendFile = (path, res) => {
       res.end('error');
       return;
     }
-    if (path.includes('.png')) {
-      res.writeHead(200, { 'Content-Type': 'image/png' });
-    }
-    if (path.includes('.ttf')) {
-      res.writeHead(200, { 'Content-Type': 'font.ttf' });
-    }
-
+    // png & ttf wird automatisch erkannt
     res.end(data);
   });
 };
@@ -23,20 +17,35 @@ const requestHandler = (req, res) => {
 
   if (req.url === '/') {
     sendFile('./assets/html/index.html', res);
-  } else if (req.url === '/style/style.css') {
-    //$ der pfad der css datei muss relativ zur html datei sein, in der sie verlinkt ist!
-    sendFile('./assets/style/style.css', res);
-  } else if (req.url.includes('/img')) {
-    const filePath = './assets' + req.url;
-    sendFile(filePath, res);
-  } else if (req.url.includes('/font')) {
-    const filePath = './assets' + req.url;
-    sendFile(filePath, res);
+    //
   } else {
-    const filePath = './assets/html' + req.url;
+    const filePath = './assets' + req.url;
     sendFile(filePath, res);
   }
 };
 
 const server = http.createServer(requestHandler);
 server.listen(9898, () => console.log('server läuft'));
+
+// wenn ich die pfade für die seiten in der nav relativ von der index.html aus angebe
+// zB './about.html' dann ist der pfad für die html datein anders als für die restlichen ordner
+// und ich müsste folgende unterscheidung machen:
+//
+// if (req.url === '/') {
+//   sendFile('./assets/html/index.html', res);
+//   //
+// } else if (
+//   req.url.includes('/style') ||
+//   req.url.includes('/img') ||
+//   req.url.includes('/font')
+// ) {
+//   const filePath = './assets' + req.url;
+//   sendFile(filePath, res);
+//   //
+// } else {
+//   const filePath = './assets/html' + req.url;
+//   sendFile(filePath, res);
+// }
+//
+// was sich einfach umgehen lässt wenn ich den pfag für alle datein vom assets ordner ausgehend angebe also
+// für die html datein '../html/about.html'
