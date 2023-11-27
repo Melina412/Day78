@@ -1,7 +1,13 @@
+@font-face {
+  font-family: Nunito;
+  src: url('../font/Nunito/Nunito-VariableFont_wght.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Nunito;
 }
 
 header {
@@ -24,4 +30,9 @@ div.headline {
   display: flex;
   align-items: center;
   margin-top: 50px;
+}
+
+p.line {
+  width: 300px;
+  border-bottom: 3px solid black;
 }
