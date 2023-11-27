@@ -9,6 +9,10 @@
   font-family: Nunito;
 }
 
+body {
+  padding: 30px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -23,13 +27,17 @@ header nav {
   align-items: center;
 }
 
+section.home h1 {
+  margin-top: 50px;
+}
+
 div.headline {
   display: flex;
   align-items: center;
   margin-top: 50px;
+  gap: 5px;
 }
-
-p.line {
+div.headline p.line {
   width: 300px;
   border-bottom: 3px solid black;
 }
